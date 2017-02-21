@@ -1,0 +1,20 @@
+---
+title: "1kTripletRepeat"
+author: "Xiang Ji"
+date: "February 21, 2017"
+output: pdf_document
+---
+
+This R script is used to get Trio data from 1000 genome project. We are 
+especially interested in the tri-nucleotide repeat regions with family trio data.
+```{r setup, include=FALSE}
+rm(list=ls())  # clean up workspace
+# Now load libraries
+library(vcfR)
+data.loc <- "/Users/xji3/Documents/1kGenomes/"
+chrm.1.vcf.file <- "/Users/xji3/Documents/1kGenomes/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+
+chrm.1.vcf <- read.vcfR(chrm.1.vcf.file)
+                          
+
+```
