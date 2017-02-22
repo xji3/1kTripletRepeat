@@ -1,0 +1,136 @@
+The files contained in this directory contain information about all the samples in 
+the 1000 genomes project and their relations. If you have any questions about the information
+in these files please email info@1000genomes.org
+
+The files in this directory are
+
+20130606_g1k.ped  
+
+This is a plink pedigree file with some additional columns
+
+Family ID, family identifier       
+Individual ID, individual id   
+Paternal ID, father     
+Maternal ID, mother     
+Gender, Gender 1 for Male, 2 for Female  
+Phenotype, 0 as these samples have no phenotype info       
+Population, 3 Letter population code as described in ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.populations
+Relationship, Relationship to other members of the family    
+Siblings, any siblings        
+Second Order, any second order relations    
+Third Order, any third order relations, note this analysis has not be done on all the samples in the set. There may still be more
+cryptic third order relations which are not annotation     
+Other Comments, any other comment about the analysis
+
+It was created based on the annotation in ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130501_sample_info/20130501_original_sample_list.xlsx
+
+The next two files contain the same information in different formats
+20130606_sample_info.txt  is a tab delimited file with 61 columns
+20130606_sample_info.xlsx is a spreadsheet where the same data is split across different sheets 
+in the same file
+
+The columns are
+
+1. Sample, Sample ID
+2. Family ID, Family ID	
+3. Population, 3 letter population code	
+4. Population Description, Description of Population
+5. Gender	
+6. Relationship, Relationship to other members of the family
+7. Unexpected Parent/Child, sample id for unexpected parent child relationships
+8. Non Paternity, sample ids for annotated non paternal relationships	
+9. Siblings, sample ids for any siblings
+10. Grandparents, sample ids for any grand parents
+11. Avuncular, sample ids for any avuncular relationships
+12. Half Siblings, sample ids for any half siblings
+13. Unknown Second Order, sample ids for any unknown second order relations
+14. Third Order, sample ids for any third order cryptic relations. As mentioned above
+    This analysis was not as widely run as the other relatedness analyses and as such
+    There may still be unannotated third order relations in the set
+15. Other Comments, other comments with respect to known mutations etc
+16. In Low Coverage Pilot, The sample is in the low coverage pilot experiment
+17. LC Pilot Platforms, low coverage pilot sequencing platforms	
+18. LC Pilot Centers, low coverage pilot sequencing centers
+19. In High Coverage Pilot, The sample is in the high coverage pilot
+20. HC Pilot Platforms, high coverage sequencing platforms
+21. HC Pilot Centers, high coverage sequencing centers
+22. In Exon Targetted Pilot, The Sample is in the exon targetted pilot experiment
+23. ET Pilot Platforms, exon targetted sequencing platforms,
+24. ET Pilot Centers, exon targetted sequencing centers,
+25.  Has Sequence in Phase1, Has sequence low coverage sequence in the 20101123.sequence.index file or 
+    exome sequence in the 20110522 sequence index file
+26. Phase1 LC Platform, phase1 low coverage sequencing platforms
+27. Phase1 LC Centers, phase1 low coverage sequencing centers
+28. Phase1 E Platform, phase1 exome sequencing platforms
+29. Phase1 E Centers, phase1 exome sequencing centers
+30. In Phase1 Integrated Variant Set, The sample is genotyped in the phase1 integrated call set on autosomes and chrX
+31. Has Phase1 chry SNPS, The sample is genotyped in the chrY phase1 snp set
+32. Has phase1 chrY Deletions, The sample is genotyepd in the chrY phase1 deletions
+33. Has phase1 chrMT SNPs, The sample is genotyped in the phase1 chrMT snps
+34. Main project LC Centers, low coverage sequencing centers for final sequencing round
+35. Main project LC platform, low coverage sequencing platform for final sequencing round
+36. Total LC Sequence, The total amount of low coverage sequence available
+37. LC Non Duplicated Aligned Coverage, The non duplicated aligned coverage for the low coverage sequence data. 
+    This was calculated using the ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices/20130502.low_coverage.alignment.index.bas.gz
+    file, the (mapped bases - duplicated bases) was summed for each sample and divided by 2.75GB and rounded to 2dp	
+38. Main Project E Centers, Exome sequencing centers for the final sequencing round
+39. Main Project E Platform, Exome sequencing platform for the final sequencing round	
+40. Total Exome Sequence, The total amount of exome sequence available	
+41. % Targets Covered to 20x or greater, The percentage of targets covered to 20x or greater as calculated by 
+    the picard function CalculateHsMetrics using these targets ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/20120518.consensus.annotation.bed
+42. VerifyBam E Omni Free
+43. VerifyBam E Affy Free	
+44. VerifyBam E Omni Chip	
+45. VerifyBam E Affy Chip	
+46. VerifyBam LC Omni Free	
+47. VerifyBam LC Affy Free	
+48. VerifyBam LC Omni Chip	
+49. VerifyBam LC Affy Chip	
+42-49 are all values from UMich's VerifyBamID BAM QC program http://genome.sph.umich.edu/wiki/VerifyBamID.
+The Free measures use a statistical model based on the haplotypes discovered by the chip. The Chip measure considers
+the genotypes available for that individual from that chip. We use greater than 3% as a cut off for our our low coverage
+samples and greater than 3.5% for our exome samples.
+50. LC Indel Ratio	
+51. E Indel Ratio	
+Both Indel ratios are the ratio of insertions to deletions found in that sample using a quick test (based on samtools)
+If the ratio is higher than 5 the sample is withdrawn.
+52. LC Passed QC	
+53. E Passed QC	
+These are binary flags showing if the sample passed QC, All samples which have passed QC have bam files. Only
+samples which have both exome and low coverage data are found under ftp/data and listed in the standard alignment index
+The small number of other samples are found in ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/phase3_EX_or_LC_only_alignment/
+54. In Final Phase Variant Calling, Any sample which has both LC and E QC passed bams is in the final analysis set
+55. Has Omni Genotypes, Omni Genotypes in ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120131_omni_genotypes_and_intensities/Omni25_genotypes_2141_samples.b37.vcf.gz	
+56. Has Axiom Genotypes, Axiom Genotypes in ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20110210_Affymetrix_Axiom/Affymetrix_Axiom_DB_2010_v4_b37.vcf.gz   	
+57. Has Affy 6.0 Genotypes, Affy 6.0 Genotypes in  ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20121128_corriel_p3_sample_genotypes/
+58. Has Exome/LOF Genotypes, ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20121009_broad_exome_chip/ALL.wgs.broad_exome_lof_indel_v2.20121009.snps_and_indels.snpchip.genotypes.vcf.gz
+59. EBV Coverage, This was calculated by looking at the alignment of the data to NC_007605 in the low coverage bam files and using that to calculate coverage	
+60. DNA Source from Coriell, This was the annotated DNA Source from Coriell	
+61. Has Sequence from Blood in Index, In the later stages of the project some populations has multiple study ids, one to indicate sequencing from blood. This data for each sample has not been treated
+    independently in the alignment process but when there is both LCL and Blood sourced data they are both together in single bams
+
+
+The text file uses abbreviations in its headers
+
+LC means low coverage
+HC means high coverage
+ET means exon targetted, this was our custom pull down pilot experiment
+E means exome, this is our exome sequencing
+
+In platforms
+
+ILLUMINA is ILLUMINA
+LS454 is 454
+ABI_SOLID is solid
+
+The sequencing centers are
+
+454MSC, 454 Rocher
+ABI, ABI Life Sciences
+BCM, Baylor College of Medicine
+BGI, Beijing Genome Institute
+BI, The Broad Institute
+ILLUMINA, Illumina
+MPIMG, Max Planck Institute for Molecular Genetics
+SC, The Sanger Instute
+WUGSC, Washington University Genome Sequencing Center

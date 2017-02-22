@@ -19,9 +19,11 @@ if __name__ == '__main__':
         info = {keys[j]:str(sheet.row(i)[j].value) for j in range(len(keys))}
         sample_to_info[info['Sample']] = info
         if family_to_id.has_key(info['Family ID']):
-            family_to_id[info['Family ID']].append(info['Sample'])
+            if info['Relationship'] in ['father', 'mother', 'child']:
+                family_to_id[info['Family ID']].append(info['Sample'])
         else:
-            family_to_id[info['Family ID']] = [info['Sample']]
+            if info['Relationship'] in ['father', 'mother', 'child']:
+                family_to_id[info['Family ID']] = [info['Sample']]
 
     for k in family_to_id.keys():
         family_to_id[k] = set(family_to_id[k])
